@@ -6,6 +6,9 @@
 
         <script>
             $(document).ready(function(){
+
+                removeSuggestions();
+
                 $("#country").keyup(function(){
                     $.ajax({
                         type: "GET",
