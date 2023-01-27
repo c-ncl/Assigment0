@@ -45,8 +45,15 @@
             }
         </script>
 
-        
         <style>
+            .suggestion-box{
+                position: absolute;
+                background-color: white;
+                border: 1px solid #333333;
+                border-radius: 3px;
+                padding: 7px;
+                display: block;
+            }
 
         </style>
     </head>
@@ -57,9 +64,9 @@
             <h1>jQuery-AJAX Country Autocomplete</h1>
         
             <input type="text" id="country" name="country" placeholder="Country Name">
-
+            <br><br>
             <div id="country-suggestion" class="suggestion-box"></div>
-
+            <br><br>
             <p>Write the name of the country in the text input above to search for a country. Then when you see the country of your liking, click on it to automatically complete the input.</p>
         </div>
     </body>
