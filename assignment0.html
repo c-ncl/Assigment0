@@ -7,7 +7,8 @@
         <script>
             $(document).ready(function(){
 
-                removeSuggestions();
+                //After the document loads, hide suggestion box.
+                $("#country-suggestion").hide();
 
                 $("#country").keyup(function(){
                     $.ajax({
@@ -17,19 +18,22 @@
                         dataType: 'json',
                         success:
                             function(data){
+
+                                //Remove suggestions when there's no data or when the data is equivalent to the value already.
                                 if(data.length==0 || data.length == 1 && data[0].nicename == $("#country").val())
                                 {
                                     removeSuggestions();
                                     return;
                                 }
-                                
+
+                                //This goes through all the countries from the JSON and adds them into a span with a class called "suggestion" and call the function "selectCountry()" when clicked.
                                 var newContent = '';
                                 data.forEach(function(a){
                                     newContent += '<span class="suggestion" onClick="selectCountry(\'' + a.nicename +'\');">' + a.nicename + '</span><br>';
                                 });
 
-                                $("#country-suggestion").html(newContent);
-                                $("#country-suggestion").show();
+                                $("#country-suggestion").html(newContent); //this add all of the suggested countries from the span to the div "country-suggestion"
+                                $("#country-suggestion").show(); //shows the div "country-suggestion"
                             }
                     });
                 });
