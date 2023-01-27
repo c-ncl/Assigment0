@@ -22,30 +22,27 @@
                                     removeSuggestions();
                                     return;
                                 }
-                                //the variable newContent is there for you to write all required HTML
+                                
                                 var newContent = '';
                                 data.forEach(function(a){
-                                    newcontent += '<span class="suggestion" onClick="selectCountry(\'' + a.nicename +'\');">' + a.nicename + '</span><br>';
+                                    newContent += '<span class="suggestion" onClick="selectCountry(\'' + a.nicename +'\');">' + a.nicename + '</span><br>';
                                 });
 
-                                //TODO: set the contents div id=country-suggestion to the value of newContent using the html() method
-                                //TODO: display the div id=country-suggestion
+                                $("#country-suggestion").html(newContent);
+                                $("#country-suggestion").show();
                             }
                     });
                 });
             });
 
             function selectCountry(val) {
-                // TODO: set the input id=country value to the value of the val variable
                 $("#country").val(val);
                 removeSuggestions();
             }
 
             function removeSuggestions(){
-                // TODO: hide the div with id=country-suggestion
-                $("$country-suggestion").hide();
-                // TODO: empty the div with id=country-suggestion
-                $("$country-suggestion").empty();
+                $("#country-suggestion").hide();
+                $("#country-suggestion").empty();
             }
         </script>
 
@@ -56,10 +53,9 @@
                 border: 1px solid #333333;
                 border-radius: 3px;
                 padding: 7px;
-                display: block;
             }
 
-            .suggestion{
+            .suggestion:hover {
                 text-decoration: underline;
                 cursor: pointer;
             }
@@ -72,9 +68,9 @@
             <h1>jQuery-AJAX Country Autocomplete</h1>
         
             <input type="text" id="country" name="country" placeholder="Country Name">
-            <br><br>
+
             <div id="country-suggestion" class="suggestion-box"></div>
-            <br><br>
+
             <p>Write the name of the country in the text input above to search for a country. Then when you see the country of your liking, click on it to automatically complete the input.</p>
         </div>
     </body>
